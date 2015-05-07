@@ -1,10 +1,13 @@
 class Ship
 
-  attr_accessor :size_range
-
-  def size arg
+  def initialize
     @size_range = {"a"=>1 , "b"=>2 , "c"=>3 , "d"=>4}
-    @size_range[arg]
+  end
+
+  attr_reader :size , :size_range
+
+  def size=(letter)
+    @size = @size_range[letter]
   end
 
   def set_direction direction
