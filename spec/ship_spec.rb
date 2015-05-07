@@ -2,11 +2,17 @@ require 'ship'
 
 describe Ship do
 
-  it { is_expected.to respond_to(:size).with(1).argument }
+  let(:board) { double :board }
+
+  it { is_expected.to respond_to :size }
+
+  it { is_expected.to respond_to :size= }
+
   it { is_expected.to respond_to(:set_direction).with(1).argument }
 
   it 'should have a range of sizes' do
-    expect(subject.size('a')).to eq 1
+    subject.size = 'a'
+    expect(subject.size).to eq 1
   end
 
   it 'should be able to receive a direction to face' do
